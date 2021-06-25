@@ -90,7 +90,7 @@
       let setupCards = setupCardContent.split('\n');
       let url = new URL(window.location.href);
       url.searchParams.set('cards',encodeURIComponent(caesarShift(setupCardContent, 1)) );
-      document.getElementById("sharelink").innerText = link;
+      document.getElementById("sharelink").innerText = "link";
       document.getElementById("sharelink").href = url.href;
 
       for (let i = 0; i < setupCards.length; i++) {
