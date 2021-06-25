@@ -57,6 +57,12 @@
       "This is another default card.",
     ];
 
+    let urlCards = new URL(window.location.href)?.searchParams?.get("cards")
+
+    if (urlCards){
+      document.getElementById("setup-card-content").value = decodeURIComponent(urlCards)
+    }
+
     function setupToggleHide() {
       let form = document.getElementById('setup');
       form.classList.toggle('d-none');
