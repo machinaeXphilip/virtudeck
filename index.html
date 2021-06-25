@@ -49,7 +49,7 @@
 
     <div id="sharing">
       share this deck by sharing this link: <br>
-      <span id="sharelink"></span>
+      <a id="sharelink" href=""></a>
     </div>
 
   </div>
@@ -92,6 +92,7 @@
       url.searchParams.set('cards',encodeURIComponent(setupCardContent) );
       console.log(url.href);
       document.getElementById("sharelink").innerText = url.href;
+      document.getElementById("sharelink").href = url.href;
 
       for (let i = 0; i < setupCards.length; i++) {
         if (setupCards[i] == "") {
