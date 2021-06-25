@@ -47,6 +47,11 @@
       </p>
     </div>
 
+    <div>
+      share this deck by sharing this link: <br>
+      <span id="sharelink"></span>
+    </div>
+
   </div>
 
   <script>
@@ -61,16 +66,22 @@
 
     if (urlCards){
       document.getElementById("setup-card-content").value = decodeURIComponent(urlCards)
+      setupComplete()
     }
 
     function setupToggleHide() {
       let form = document.getElementById('setup');
       form.classList.toggle('d-none');
+
     }
 
     function setupComplete() {
       let setupCardContent = document.getElementById('setup-card-content').value;
       let setupCards = setupCardContent.split('\n');
+      let url = new URL(window.location.href);
+      url.searchParams.set('cards',encodeURIComponent(setupCardContent) );
+      console.log(url.href);
+      document.getElementById("sharelink").innerText = url.href;
 
       for (let i = 0; i < setupCards.length; i++) {
         if (setupCards[i] == "") {
